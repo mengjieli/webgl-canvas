@@ -20,7 +20,7 @@ module game {
             webgl.Stage.getInstance().addCanvasAt(this.canvas);
 
             //获取 context2d
-            this.context2d = <any>this.canvas.getContext("2d", {"realTime": true});
+            this.context2d = <any>this.canvas.getContext("2d");
 
             //加载图片
             new ImageLoader(["resources/128x128_1.png", "resources/128x128_2.png", "resources/flower.png"], this.loadImageComplete, this);
@@ -32,7 +32,7 @@ module game {
             var t3 = new webgl.Texture(webgl.CanvasRenderingContext2D.createTexture(images[2]), images[2].width, images[2].height);
 
 
-            var loop = 0;
+            var loop = 100;
             for (var i = 0; i < loop; i++) {
                 new MoveBitmap(t1, this.context2d);
                 new MoveBitmap(t2, this.context2d);
